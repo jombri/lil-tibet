@@ -1,13 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './Styles/theme';
+import { GlobalStyle } from './Styles/Global';
+import Announcement from './components/Announcement';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        it better work this time! aaaish jhincha
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+          <Announcement />
+      </>
+    </ThemeProvider>
   );
 }
 
