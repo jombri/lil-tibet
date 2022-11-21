@@ -1,3 +1,8 @@
+check it out live at https://lil-tibet.netlify.app/ as I progress working on this project. 
+Any feedback is welcome.
+Best,
+Jungney
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
