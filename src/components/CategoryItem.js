@@ -25,9 +25,10 @@ const Info = styled.div`
 const Title = styled.h2`
     font-size: clamp(1.5rem, 3vw, 2rem);
 `
-const Button = styled.button`
 
-`
+/* const Button = styled.button`
+
+` */
 
 const CategoryItem = ({item}) => {
   return (
