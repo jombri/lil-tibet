@@ -86,30 +86,6 @@ align-items: center;
 ${tablet({flex: 1})}
 `;
 
-/* const Language = styled.span`
-  font-size: 14px;
-  cursor: pointer;
-  width: 5%;
-  ${mobile({display: "none"})}
-`; */
-
-/* const SearchContainer = styled.div`
-  border: 1px solid lightgray;
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  width: 95%;
-` */
-/* const Input = styled.input`
-  border: none;
-  background: none;
-  margin-right: 5px;
-  width: 100%;
-  height: 40px;
-  padding-left: 10px;
-  font-size: 1rem;
-  ${mobile({width: "50px"})}
-` */
 const Logo = styled.h1`
   font-weight: bold;
   font-size: clamp(2rem, 4.5vw, 4rem);
