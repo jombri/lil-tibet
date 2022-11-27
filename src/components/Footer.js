@@ -50,10 +50,17 @@ const SocialContainer = styled.div`
 `
 
 const SocialIcon = styled.div`
-    width: 50px;
-    height: 50px;
+    /* width: 50px; */
+    /* height: 50px; */
+    padding: 5px;
     border-radius: 50%;
     color: white;
+    transition: all 0.3s ease;
+
+    &:hover {
+        cursor: pointer;
+        color: rgba(211, 236, 255, 0.6);
+    }
 `
 
 const Footer = () => {
@@ -65,7 +72,7 @@ const Footer = () => {
                 <p>(012) - 345 - 6789</p>
                 <p>online.customercare@liltibet.com</p>
                 <p>
-                    <a href="#">Contact Us</a>
+                    <a>Contact Us</a>
                 </p>
             </Left>
             <Right>
