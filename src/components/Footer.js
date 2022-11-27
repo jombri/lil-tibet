@@ -65,7 +65,7 @@ const Footer = () => {
                 <p>(012) - 345 - 6789</p>
                 <p>online.customercare@liltibet.com</p>
                 <p>
-                    <a href="">Contact Us</a>
+                    <a href="#">Contact Us</a>
                 </p>
             </Left>
             <Right>
