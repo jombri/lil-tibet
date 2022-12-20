@@ -30,14 +30,15 @@ const InputContainer = styled.div`
 `;
 const Input = styled.input`
     border: none;
-    flex: 20;
+    /* flex: 20; */
     padding-left: 15px;
 `;
 const Button = styled.button`
-    flex: 1;
+    /* flex: 1; */
     border: none;
     background-color: teal;
     color: white;
+    width: 50px;
 `;
 
 const Subscription = () => {

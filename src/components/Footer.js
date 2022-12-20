@@ -50,10 +50,16 @@ const SocialContainer = styled.div`
 `
 
 const SocialIcon = styled.div`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
     color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+
+    &:hover {
+        cursor: pointer;
+        color: rgba(210, 210, 210, 0.9);
+    }
 `
 
 const Footer = () => {
