@@ -4,26 +4,23 @@ import styled from 'styled-components'
 import Announcement from '../components/Announcement'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import { mobile } from '../responsive'
+import { tablet } from '../responsive'
 
 const Container = styled.div`
-   /*  width: 100vw;
-    height: 100vh; */
+
 `;
 
 const Wrapper = styled.div`
-    /* padding: 20px; */
+    display: flex;
+    flex-direction: column;
     width: 90%;
     max-width: 1420px;
     margin: 0 auto;
-    ${mobile({padding: "10px", display: "flex", flexDirection: "column"})}
 
 `;
 
 const Title = styled.h1`
     margin: 20px 0 50px 0;
-    /* font-weight: 300; */
-    /* text-align: center; */
 `;
 
 const Top = styled.div`
@@ -43,7 +40,6 @@ const TopButton = styled.button`
 `;
 
 const TopTexts = styled.div`
-    ${mobile({display: "none"})}
 
 `;
 const TopText = styled.span`
@@ -54,40 +50,45 @@ const TopText = styled.span`
 
 const Bottom = styled.div`
     display: flex;
-    justify-content: space-between;
-    column-gap: 15px;
-    /* ${mobile({flexDirection: "column"})} */
-
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-bottom: 100px;
+    ${tablet({flexDirection: "row", columnGap: "1rem"})}
 `;
 
 const Info = styled.div`
-    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    ${tablet({flex: 3, border: "1px solid gray", padding: "1rem"})}
 `;
 
 const Product = styled.div`
     display: flex;
-    justify-content: space-between;
-    /* ${mobile({flexDirection: "column"})} */
+    column-gap: 2%;
+    height: 100%;
+    max-height: 210px;
 `;
 
 const ProductDetail = styled.div`
     display: flex;
-    flex: 2;
+    flex-direction: column;
+    flex: 1 0 auto;
     column-gap: 15px;
-    ${mobile({columnGap: "10px"})}
-
+    min-width: 150px;
 `;
 
 const Image = styled.img`
-    width: 300px;
-    ${mobile({width: "100px"})}
-
+    width: 45%; 
+    min-width: 50px;
+    object-fit: contain;
 `;
 
 const Details = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    row-gap: 5px;
 `;
 
 const ProductName = styled.span``;
@@ -109,7 +110,6 @@ const PriceDetail = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    ${mobile({margin: "15px 0"})}
 
 `;
 
@@ -122,7 +122,6 @@ const ProductAmountContainer = styled.div`
 const ProductAmount = styled.div`
     font-size: 1rem;
     margin: 5px;
-    ${mobile({margin: "5px 15px"})}
 
 `;
 
@@ -135,6 +134,7 @@ const Hr = styled.hr`
     background-color: #eee;
     border: none;
     height: 1px;
+    margin: 1.5rem;
 `;
 
 const Summary = styled.div`
@@ -142,7 +142,7 @@ const Summary = styled.div`
     border: 0.5px solid lightgrey;
     border-radius: 10px;
     padding: 20px;
-    /* height: 50vh; */
+    ${tablet({minWidth: "250px", flex: 1})}
 `;
 
 const SummaryTitle = styled.h1`
@@ -164,8 +164,6 @@ const SummaryItemPrice = styled.span``;
 const Button = styled.button`
     width: 100%;
     padding: 15px;
-    /* background-color: black; */
-    /* color: white; */
     font-weight: 600;
     border: ${(props) => props.type === "filled" && "none"};
     background-color: ${(props) => props.type === "filled" ? "black" : "transparent"};
@@ -194,56 +192,48 @@ const Cart = () => {
         <Announcement/>
         <Wrapper>
             <Title>Shopping Bag</Title>
-{/*             <Top>
-                <TopButton>Continue Shopping</TopButton>
-                <TopTexts>
-                    <TopText>Shopping Bag(2)</TopText>
-                    <TopText>Your Wishlist (0)</TopText>
-                </TopTexts>
-                <TopButton type="filled">Checkout Now</TopButton>
-            </Top> */}
             <Bottom>
                 <Info>
                     <Product>
+                        <Image src="../images/tibetan-shoe-black.webp"/>
                         <ProductDetail>
-                            <Image src="../images/tibetan-shoe-black.webp"/>
                             <Details>
                                 <ProductName><b>Product:</b> Tibetan traditional boots</ProductName>
                                 <ProductId><b>ID:</b> 3475495512</ProductId>
                                 <ProductColor color='black'/>
                                 <ProductSize><b>Size:</b> 38</ProductSize>
                             </Details>
+                            <PriceDetail>
+                                <ProductAmountContainer>
+                                    <Add/>
+                                    <ProductAmount>5</ProductAmount>
+                                    <Remove/>
+                                </ProductAmountContainer>
+                                <ProductPrice>$ 80</ProductPrice>
+                            </PriceDetail>
                         </ProductDetail>
-                        <PriceDetail>
-                            <ProductAmountContainer>
-                                <Add/>
-                                <ProductAmount>5</ProductAmount>
-                                <Remove/>
-                            </ProductAmountContainer>
-                            <ProductPrice>$ 80</ProductPrice>
-                        </PriceDetail>
                     </Product>
 
                     <Hr/>
 
                     <Product>
+                        <Image src="../images/tibetan-shoe-brown.webp"/>
                         <ProductDetail>
-                            <Image src="../images/tibetan-shoe-brown.webp"/>
                             <Details>
                                 <ProductName><b>Product:</b> Tibetan tranditional boots</ProductName>
                                 <ProductId><b>ID:</b> 3475495514</ProductId>
                                 <ProductColor color='black'/>
                                 <ProductSize><b>Size:</b> 38</ProductSize>
                             </Details>
+                            <PriceDetail>
+                                <ProductAmountContainer>
+                                    <Add/>
+                                    <ProductAmount>5</ProductAmount>
+                                    <Remove/>
+                                </ProductAmountContainer>
+                                <ProductPrice>$ 80</ProductPrice>
+                            </PriceDetail>
                         </ProductDetail>
-                        <PriceDetail>
-                            <ProductAmountContainer>
-                                <Add/>
-                                <ProductAmount>5</ProductAmount>
-                                <Remove/>
-                            </ProductAmountContainer>
-                            <ProductPrice>$ 80</ProductPrice>
-                        </PriceDetail>
                     </Product>
                 </Info>
                 <Summary>
@@ -269,7 +259,6 @@ const Cart = () => {
                         <a>
                             <span>Continue Shopping</span> <KeyboardArrowRight/>
                         </a>
-                        
                     </ContinueShopBox>
                 </Summary>
             </Bottom>

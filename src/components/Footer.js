@@ -1,7 +1,7 @@
 import { Facebook, Instagram, Twitter } from '@mui/icons-material'
 import React from 'react'
 import styled from 'styled-components'
-import { mobile, tablet } from '../responsive'
+import { tablet } from '../responsive'
 import Subscription from './Subscription'
 
 const Container = styled.div`
@@ -17,17 +17,14 @@ const Container = styled.div`
         row-gap: 10px;
         flex: 1;
     }
-    /* height: 300px; */
-    /* ${mobile({flexDirection: "column", rowGap: "15px", textAlign: "center", paddingTop: "15px"})} */
     ${tablet({flexDirection: "row", textAlign: "center", rowGap: "20px"})}
 
 `
 const Left = styled.div`
-    /* flex: 1; */
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     p {
-        ${mobile({margin: "5px"})}
     }
 
 `
@@ -37,7 +34,6 @@ const Title = styled.h2`
 `
 
 const Right = styled.div`
-    /* flex: 1; */
 `
 
 const SocialContainer = styled.div`
@@ -68,7 +64,7 @@ const Footer = () => {
         <Container className='wrapper'>
             <Left>
                 <Title>Customer Care</Title>
-                <p>(012) - 345 - 6789</p>
+                <p>(123) - 456 - 7890</p>
                 <p>online.customercare@liltibet.com</p>
                 <p>
                     <a href="">Contact Us</a>

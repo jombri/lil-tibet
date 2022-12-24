@@ -4,33 +4,28 @@ import styled from 'styled-components'
 import Announcement from '../components/Announcement';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { mobile } from '../responsive';
 
 const Container = styled.div``;
 const Wrapper = styled.div`
-    padding: 50px;
     display: flex;
-    /* height: 70vh; */
-    ${mobile({padding: "10px", flexDirection: "column"})}
+    width: 90%;
+    margin: 50px auto;
+    column-gap: 2%;
+    max-height: 50vh;
 
 `;
 const ImageContainer = styled.div`
     flex: 1;
-    ${mobile({display: "flex", justifyContent: "center"})}
-    
-    /* height: 50vh; */
 `;
 const Image = styled.img`
     max-width: 100%;
+    width: 100%;
     height: 100%;
-    /* object-fit: cover; */
-    ${mobile({height: "45vh" })}
+    object-fit: contain;
 
 `;
 const InfoContainer = styled.div`
     flex: 1;
-    padding: 0 50px;
-    ${mobile({padding: "10px"})}
 
 `;
 const Title = styled.h2`
@@ -46,11 +41,12 @@ const Price = styled.span`
 `;
 
 const FilterContainer = styled.div`
-    width: 50%;
+    width: 100%;
     margin: 30px 0;
     display: flex;
+    flex-direction: column;
+    row-gap: 10px;
     justify-content: space-between;
-    ${mobile({width: "100%"})}
     
 `;
 
@@ -85,13 +81,18 @@ const FilterSizeOption = styled.option`
 
 const AddContainer = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    row-gap: 20px;
 `;
 
 const AmountContainer = styled.div`
     display: flex;
     align-items: center;
+    width: 100%;
+    max-width: 200px;
+    justify-content: space-between;
     font-weight: 700;
 `;
 
@@ -107,7 +108,9 @@ const Amount = styled.span`
 `;
 
 const Button = styled.button`
-    padding: 15px;
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
     border: 2px solid teal;
     background-color: white;
     cursor: pointer;

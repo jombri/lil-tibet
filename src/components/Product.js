@@ -3,7 +3,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  /* max-width: 350px; */
   width: 100%;
   height:450px;
   display: flex;
@@ -32,7 +31,6 @@ const InfoContainer = styled.div`
 
 const Info = styled.div``
 
-// const Brand = styled.h3``
 const Icon = styled.div`
   cursor: pointer;
   transition: all 0.5s ease;
@@ -42,7 +40,6 @@ const Icon = styled.div`
     transform: scale(1.2);
   }
 `
-// const Desc = styled.p``
 const Price = styled.p``
 
 const Product = ({item}) => {
@@ -51,7 +48,6 @@ const Product = ({item}) => {
       <Image src={item.img}/>
       <InfoContainer>
         <Info>
-          {/* <Desc /> */}
           <Price>{item.price}</Price>
         </Info>
         <Icon>

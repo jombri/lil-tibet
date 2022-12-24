@@ -3,8 +3,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-    /* height: 60vh; */
-    /* background-color: #fcf5f5; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,11 +28,10 @@ const InputContainer = styled.div`
 `;
 const Input = styled.input`
     border: none;
-    /* flex: 20; */
+    width: 100%;
     padding-left: 15px;
 `;
 const Button = styled.button`
-    /* flex: 1; */
     border: none;
     background-color: teal;
     color: white;

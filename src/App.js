@@ -2,21 +2,21 @@ import './App.scss';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './Styles/theme';
 import { GlobalStyle } from './Styles/Global';
-// import Home from './pages/Home';
+import Home from './pages/Home';
 // import Login from './pages/Login';
 // import Cart from './pages/Cart';
 // import Product from './pages/Product';
-import ProductList from './pages/ProductList';
+// import ProductList from './pages/ProductList';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyle />
-          {/* <Home /> */}
+          <Home />
           {/* <Login /> */}
           {/* <Cart /> */}
-          <ProductList />
+          {/* <ProductList /> */}
           {/* <Product /> */}
       </>
     </ThemeProvider>
