@@ -1,15 +1,21 @@
-import Badge from '@mui/material/Badge';
-import {FavoriteBorder, Menu, Search, ShoppingCartOutlined} from '@mui/icons-material';
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { tablet } from "../responsive"
+import Badge from '@mui/material/Badge';
+import {Close, FavoriteBorder, Menu, Search, ShoppingCartOutlined} from '@mui/icons-material';
+import { tablet } from "../responsive";
+import Announcement from './Announcement';
 
- const Container = styled.div`
+ const Container = styled.nav`
     width: 100%;
+    height: ${(props) => (props.sideNav ? "inherit" : "auto")};
     background-color: ${({ theme }) => theme.colors.mustard};
-    padding: 10px 5px 10px 0;
-
+    padding: 10px 0 0;
+    ${tablet({height: "auto"})}
+    position: sticky;
+    top: 0;
 `;
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -18,19 +24,34 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 
+const SideWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin-top: 5%;
+`;
+
 const Left = styled.div`
   flex: 1;
   align-items: center;
   font-family: ${({ theme }) => theme.font.heading};
   ${tablet({flex: 3})}
+`;
 
+const CategoryDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 `;
 
 const IconDiv = styled.div`
   display: flex;
   column-gap: 5px;
   align-items: center;
-  margin-right: ${props=> props.marginRight ? '5px' : null };
+  margin-right: ${(props) => props.marginRight ? '5px' : null };
 `;
 
 const HideIconDiv = styled(IconDiv)`
@@ -44,21 +65,48 @@ const CategoryList = styled.li`
   font-size: 1rem;
   ${tablet({display: "flex"})}
 `;
-const CategoryLink = styled.a`
+
+const SideCategoryList = styled.li`
+  list-style-type: none;
+  display: flex;
+  column-gap: 10px;
+  font-size: 1rem;
+  ${tablet({display: "flex"})}
+`;
+
+const CategoryLink = styled(Link)`
   text-transform: uppercase;
   text-decoration: none;
-  transition-property: text-decoration;
-  transition-duration: 2s;
-  transition-timing-function: ease;
+  position: relative;
+  color: black;
 
   &:hover {
     cursor: pointer;
-    text-decoration: underline;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
   }
 `;
 
+const SideCategoryLink = styled(CategoryLink)`
+  
+`;
 
-export const Center = styled.div`
+const Center = styled.div`
 flex: 3;
 color: black;
 display: flex;
@@ -67,12 +115,13 @@ align-items: center;
 ${tablet({ flex: 2, fontSize: "1rem"})}
 `;
 
-const Logo = styled.h1`
+const Logo = styled(Link)`
   font-weight: bold;
   font-size: clamp(2rem, 4.5vw, 4rem);
   margin: auto;
   font-family: ${({ theme }) => theme.font.logo};
-
+  color: black;
+  text-decoration: none;
   `;
 
 const Right = styled.div`
@@ -92,25 +141,61 @@ const Registration = styled.div`
   ${tablet({display: "flex"})};
 `;
 
-const RegDiv = styled(CategoryLink)`
+const SideRegistration = styled(CategoryLink)`
 
+`;
+
+const RegDiv = styled(CategoryLink)`
+  text-transform: uppercase;
 `;
 
 const MenuItem = styled.div`
   font-size: clamp(14px, 3.5vw 1.5rem);
   cursor: pointer;
+  color: black;
+  transition: all 0.2s ease;
 
   &:hover {
     text-decoration: underline;
     transform: scale(1.2);
   }
+`;
 
+const SideCloseItem = styled(MenuItem)`
+  align-self: flex-end;
+`;
+
+const SideMenuItem = styled(MenuItem)`
+  
+`;
+
+const SideNav = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  ${tablet({display: "none"})};
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  height: 100vh;
+  width: 100%;
+  background-color: gray;
+`;
+
+const Hr = styled.hr`
+    background-color: lightgray;
+    border: none;
+    height: 1px;
+    width: 100%;
+    margin: 1rem;
 `;
 
 
 const Navbar = () => {
+  const [sideNav, setSideNav] = useState(false);
+
   return (
-    <Container>
+    <Container sideNav={sideNav}>
       <Wrapper>
         <Left>
           <CategoryList>
@@ -120,8 +205,10 @@ const Navbar = () => {
             <CategoryLink>Kids</CategoryLink>
           </CategoryList>
           <HideIconDiv>
-            <MenuItem>
-              <Menu />
+            <MenuItem onClick={() => {
+              setSideNav((current) => !current);
+            }}>
+              {sideNav ? <Close /> : <Menu />}
             </MenuItem>
             <MenuItem>
               <FavoriteBorder />
@@ -129,25 +216,60 @@ const Navbar = () => {
           </HideIconDiv>
         </Left>
         <Center>
-          <Logo>lil-Tibet</Logo>
+            <Logo to="/">lil-Tibet</Logo>
         </Center>
         <Right>
+
+
           <Registration>
-            <RegDiv>REGISTER</RegDiv>
-            <RegDiv>SIGN IN</RegDiv>
+            <RegDiv to="/login">Sign In</RegDiv>
           </Registration>
           <IconDiv marginRight>
             <MenuItem>
               <Search />
             </MenuItem>
-            <MenuItem>
-              <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlined />
-              </Badge>
-            </MenuItem>
+            <Link to="/cart">
+              <MenuItem>
+                <Badge badgeContent={4} color="primary">
+                <ShoppingCartOutlined />
+                </Badge>
+              </MenuItem>
+            </Link>
           </IconDiv>
         </Right>
       </Wrapper>
+
+      {sideNav && (
+        <SideNav>
+          <SideWrapper>
+            <SideCloseItem onClick={() => {
+              setSideNav((current) => !current);
+            }}>
+              {sideNav ? <Close /> : <Menu />}
+            </SideCloseItem>
+
+            <Hr />
+            <SideRegistration to="/login">Sign In / Create an Account</SideRegistration>
+
+            <Hr />
+
+            <CategoryDiv>
+              <SideCategoryList>
+                <SideCategoryLink>Women</SideCategoryLink>
+                <SideCategoryLink>Men</SideCategoryLink>
+                <SideCategoryLink>Home</SideCategoryLink>
+                <SideCategoryLink>Kids</SideCategoryLink>
+              </SideCategoryList>
+
+                <SideMenuItem>
+                  <Search />
+                </SideMenuItem>
+            </CategoryDiv>
+          </SideWrapper>
+        </SideNav>
+      )
+      }
+      <Announcement />
     </Container>
   )
 }
