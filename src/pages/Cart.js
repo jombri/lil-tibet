@@ -1,7 +1,7 @@
 import { Add, Remove, KeyboardArrowRight } from '@mui/icons-material'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Announcement from '../components/Announcement'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import { tablet } from '../responsive'
@@ -21,31 +21,6 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
     margin: 20px 0 50px 0;
-`;
-
-const Top = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-`;
-
-const TopButton = styled.button`
-    padding: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    border: ${(props) => props.type === "filled" && "none"};
-    background-color: ${(props) => props.type === "filled" ? "black" : "transparent"};
-    color: ${(props) => props.type === "filled" && "white"};
-`;
-
-const TopTexts = styled.div`
-
-`;
-const TopText = styled.span`
-    text-decoration: underline;
-    cursor: pointer;
-    margin: 0 10px;
 `;
 
 const Bottom = styled.div`
@@ -147,6 +122,8 @@ const Summary = styled.div`
 
 const SummaryTitle = styled.h1`
     font-weight: 200;
+    font-size: 1.5rem;
+    ${tablet({fontSize: "clamp(1.5rem, 2vw, 2rem)"})}
 `;
 
 const SummaryItem = styled.div`
@@ -172,24 +149,22 @@ const Button = styled.button`
     cursor: pointer;
 `;
 
-const ContinueShopBox = styled.div`
+const ContinueShopBox = styled(Link)`
     display: flex;
     align-items: center;
-    a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        font-size: 1.5rem;
-        cursor: pointer;
-    }
+    justify-content: center;
+    width: 100%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    ${tablet({fontSize: "clamp(1rem, 2vw, 1.5rem)"})}
 `;
 
 const Cart = () => {
   return (
     <Container>
         <Navbar/>
-        <Announcement/>
         <Wrapper>
             <Title>Shopping Bag</Title>
             <Bottom>
@@ -255,10 +230,8 @@ const Cart = () => {
                         <SummaryItemPrice>$ 160</SummaryItemPrice>
                     </SummaryItem>
                     <Button type="filled">Checkout</Button>
-                    <ContinueShopBox>
-                        <a>
-                            <span>Continue Shopping</span> <KeyboardArrowRight/>
-                        </a>
+                    <ContinueShopBox to="/">
+                        <span>Continue Shopping</span> <KeyboardArrowRight/>
                     </ContinueShopBox>
                 </Summary>
             </Bottom>

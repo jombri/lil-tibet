@@ -1,13 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import Navbar from '../components/Navbar';
 
 const Container = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 150px;
 `;
 
 const Wrapper = styled.div`
@@ -40,11 +41,12 @@ const Input = styled.input`
 const Button = styled.button`
     width: 40%;
     border: none;
-    padding: 15px 20px;
+    padding: 10px 15px;
     background-color: teal;
     color: white;
     cursor: pointer;
     margin-bottom: 10px;
+    text-transform: uppercase;
 `;
 
 const Link = styled.a`
@@ -56,18 +58,21 @@ const Link = styled.a`
 
 const Login = () => {
   return (
-    <Container>
-        <Wrapper>
-            <Title>SIGN IN</Title>
-            <Form>
-                <Input placeholder="username"/>
-                <Input placeholder="password"/>
-                <Button>LOGIN</Button>
-                <Link>Do you not remember the password?</Link>
-                <Link>Create a new account</Link>
-            </Form>
-        </Wrapper>
-    </Container>
+    <>
+        <Navbar />
+        <Container>
+            <Wrapper>
+                <Title>Sign In</Title>
+                <Form>
+                    <Input placeholder="username"/>
+                    <Input placeholder="password"/>
+                    <Button>Login</Button>
+                    <Link>Do you not remember the password?</Link>
+                    <Link>Create a new account</Link>
+                </Form>
+            </Wrapper>
+        </Container>
+    </>
   )
 }
 

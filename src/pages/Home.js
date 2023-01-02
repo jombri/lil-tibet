@@ -1,19 +1,28 @@
-// import React from 'react'
-import Announcement from '../components/Announcement';
+import React from 'react'
 import Navbar from '../components/Navbar';
 import Categories from '../components/Categories';
 import Products from '../components/Products';
 import Footer from '../components/Footer';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  height: 100%;
+  `;
+
+const NavComponent = styled(Navbar)`
+  height: 100%;
+  position: sticky;
+  top: 0;
+  `;
 
 const Home = () => {
   return (
-    <div>
-        <Announcement />
-        <Navbar />
+    <Container>
+        <NavComponent />
         <Categories />
         <Products />
         <Footer />
-    </div>
+    </Container>
   )
 } 
 
