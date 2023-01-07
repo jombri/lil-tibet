@@ -18,10 +18,10 @@ const NavComponent = styled(Navbar)`
 const Home = () => {
   return (
     <Container>
-        <NavComponent />
-        <Categories />
-        <Products />
-        <Footer />
+      <NavComponent />
+      <Categories />
+      <Products />
+      <Footer />
     </Container>
   )
 } 

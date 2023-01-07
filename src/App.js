@@ -6,30 +6,29 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
-// import Product from './pages/Product';
-// import ProductList from './pages/ProductList';
 import ErrorPage from './pages/ErrorPage';
-// import Navbar from './components/Navbar';
+import Women from './pages/Women';
+import Men from './pages/Men';
+import Accesory from './pages/Accesory';
+import Kid from './pages/Kid';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyle />
-        {/* <Navbar /> */}
         <>
           <Routes>
             <Route path='/' element={ <Home /> } />
+            <Route path='/women' element={ <Women /> } />
+            <Route path='/men' element={ <Men /> } />
+            <Route path='/accesory' element={ <Accesory /> } />
+            <Route path='/kids' element={ <Kid /> } />
             <Route path='/cart' element={ <Cart /> } />
             <Route path='/login' element={ <Login /> } />
             <Route path='*' element={ <ErrorPage /> } />
           </Routes>
         </>
-          {/* <Home /> */}
-          {/* <Login /> */}
-          {/* <Cart /> */}
-          {/* <ProductList /> */}
-          {/* <Product /> */}
       </>
     </ThemeProvider>
   );

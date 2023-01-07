@@ -1,10 +1,11 @@
 import { Add, Remove, KeyboardArrowRight } from '@mui/icons-material'
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import { tablet } from '../responsive'
+import { CategoryLink } from '../components/Navbar'
 
 const Container = styled.div`
 
@@ -113,6 +114,9 @@ const Hr = styled.hr`
 `;
 
 const Summary = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     flex: 2;
     border: 0.5px solid lightgrey;
     border-radius: 10px;
@@ -127,6 +131,7 @@ const SummaryTitle = styled.h1`
 `;
 
 const SummaryItem = styled.div`
+    width: 100%;
     margin: 30px 0;
     display: flex;
     justify-content: space-between;
@@ -139,21 +144,25 @@ const SummaryItemText = styled.span``;
 const SummaryItemPrice = styled.span``;
 
 const Button = styled.button`
-    width: 100%;
+    width: 70%;
+    max-width: 300px;
     padding: 15px;
+    margin: auto;
     font-weight: 600;
     border: ${(props) => props.type === "filled" && "none"};
     background-color: ${(props) => props.type === "filled" ? "black" : "transparent"};
     color: ${(props) => props.type === "filled" && "white"};
     margin-bottom: ${(props) => props.type === "filled" && "20px"};
     cursor: pointer;
+    ${tablet({width: "100%"})}
 `;
 
-const ContinueShopBox = styled(Link)`
+const ContinueShopBox = styled(CategoryLink)`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: fit-content;
+    margin: auto;
     font-size: 1.5rem;
     cursor: pointer;
     text-decoration: none;

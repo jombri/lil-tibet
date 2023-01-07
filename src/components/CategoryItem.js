@@ -20,7 +20,7 @@ const Title = styled.h2`
     font-size: clamp(1.2rem, 2vw, 2rem);
 `
 
-const CategoryItem = ({item}) => {
+const CategoryItem = ({ item }) => {
   return (
     <Container>
         <Info>

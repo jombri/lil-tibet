@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Badge from '@mui/material/Badge';
 import {Close, FavoriteBorder, Menu, Search, ShoppingCartOutlined} from '@mui/icons-material';
 import { tablet } from "../responsive";
 import Announcement from './Announcement';
+import SearchBox from './SearchBox';
 
  const Container = styled.nav`
     width: 100%;
@@ -74,11 +75,12 @@ const SideCategoryList = styled.li`
   ${tablet({display: "flex"})}
 `;
 
-const CategoryLink = styled(Link)`
+export const CategoryLink = styled(NavLink)`
   text-transform: uppercase;
   text-decoration: none;
   position: relative;
   color: black;
+  text-decoration: none;
 
   &:hover {
     cursor: pointer;
@@ -97,7 +99,8 @@ const CategoryLink = styled(Link)`
     transition: transform 0.2s ease;
   }
 
-  &:hover::after {
+  &:hover::after,
+  &.active::after {
     transform: scaleX(1);
   }
 `;
@@ -190,19 +193,24 @@ const Hr = styled.hr`
     margin: 1rem;
 `;
 
-
 const Navbar = () => {
   const [sideNav, setSideNav] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+
+  const openSearch = () => {
+    setShowSearch(current => !current)
+  }
+ 
 
   return (
     <Container sideNav={sideNav}>
       <Wrapper>
         <Left>
           <CategoryList>
-            <CategoryLink>Women</CategoryLink>
-            <CategoryLink>Men</CategoryLink>
-            <CategoryLink>Home</CategoryLink>
-            <CategoryLink>Kids</CategoryLink>
+            <CategoryLink to="/women">Women</CategoryLink>
+            <CategoryLink to="/men">Men</CategoryLink>
+            <CategoryLink to="/accesory">Accesories</CategoryLink>
+            <CategoryLink to="/kids">Kids</CategoryLink>
           </CategoryList>
           <HideIconDiv>
             <MenuItem onClick={() => {
@@ -215,17 +223,17 @@ const Navbar = () => {
             </MenuItem>
           </HideIconDiv>
         </Left>
+
         <Center>
             <Logo to="/">lil-Tibet</Logo>
         </Center>
+
         <Right>
-
-
           <Registration>
             <RegDiv to="/login">Sign In</RegDiv>
           </Registration>
           <IconDiv marginRight>
-            <MenuItem>
+            <MenuItem onClick={openSearch}>
               <Search />
             </MenuItem>
             <Link to="/cart">
@@ -238,9 +246,11 @@ const Navbar = () => {
           </IconDiv>
         </Right>
       </Wrapper>
+      <SearchBox showSearch={showSearch} setShowSearch={setShowSearch}/>
 
       {sideNav && (
         <SideNav>
+          <SearchBox showSearch={showSearch} setShowSearch={setShowSearch}/>
           <SideWrapper>
             <SideCloseItem onClick={() => {
               setSideNav((current) => !current);
@@ -255,13 +265,13 @@ const Navbar = () => {
 
             <CategoryDiv>
               <SideCategoryList>
-                <SideCategoryLink>Women</SideCategoryLink>
-                <SideCategoryLink>Men</SideCategoryLink>
-                <SideCategoryLink>Home</SideCategoryLink>
-                <SideCategoryLink>Kids</SideCategoryLink>
+                <SideCategoryLink to="/women">Women</SideCategoryLink>
+                <SideCategoryLink to="/men">Men</SideCategoryLink>
+                <SideCategoryLink to="/accesory">Accesories</SideCategoryLink>
+                <SideCategoryLink to="/kids">Kids</SideCategoryLink>
               </SideCategoryList>
 
-                <SideMenuItem>
+                <SideMenuItem onClick={openSearch}>
                   <Search />
                 </SideMenuItem>
             </CategoryDiv>
