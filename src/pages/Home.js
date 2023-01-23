@@ -4,6 +4,7 @@ import Categories from '../components/Categories';
 import Products from '../components/Products';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
+// import ProductList from './ProductList';
 
 const Container = styled.div`
   height: 100%;
@@ -17,10 +18,11 @@ const NavComponent = styled(Navbar)`
 
 const Home = () => {
   return (
-    <Container>
+    <Container >
       <NavComponent />
       <Categories />
       <Products />
+      {/* <ProductList /> */}
       <Footer />
     </Container>
   )

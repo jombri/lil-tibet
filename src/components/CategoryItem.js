@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -23,10 +24,12 @@ const Title = styled.h2`
 const CategoryItem = ({ item }) => {
   return (
     <Container>
-        <Info>
-            <Title>{item.title}</Title>
-        </Info>
-        <Image src={item.img}/>
+        <Link to={`/products/${item.cat}`}>
+            <Info>
+                <Title>{item.title}</Title>
+            </Info>
+            <Image src={item.img}/>
+        </Link>
     </Container>
   )
 }

@@ -200,7 +200,6 @@ const Navbar = () => {
   const openSearch = () => {
     setShowSearch(current => !current)
   }
- 
 
   return (
     <Container sideNav={sideNav}>

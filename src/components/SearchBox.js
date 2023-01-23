@@ -5,7 +5,7 @@ import { tablet } from '../responsive';
 
 const Container = styled.div`
     width: 100%;
-    height: 15%;
+    height: 20%;
     z-index: 15;
     position: fixed;
     top: 0;

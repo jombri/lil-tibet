@@ -11,18 +11,19 @@ const Container = styled.div`
   justify-content: space-around;
   border: 1px solid lightgrey;
   margin: 0 auto;
-  padding: 20px 0 0 0;
+  padding: 20px 10px 0;
   row-gap: 20px;
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 100%;
+  height: 90%;
   object-fit: contain;
   `;
 
 const InfoContainer = styled.div`
   width: 100%;
+  height: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
