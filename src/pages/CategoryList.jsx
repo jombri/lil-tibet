@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-// import Products from '../components/Products';
+import Products from '../components/Products';
 
 // import React, { useEffect } from 'react'
 // import { useState } from 'react'
@@ -13,8 +13,10 @@ const CategoryList = ({filters, sort}) => {
     // console.log(cat, filters, sort)
 
   return (
-    <div>{cat}</div>
-    // <Products />
+    <>
+      <div>{cat}</div>
+      <Products />
+    </>
   )
 }
 

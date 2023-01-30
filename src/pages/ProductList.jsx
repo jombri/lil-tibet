@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 // import Announcement from '../components/Announcement'
-import Navbar from '../components/Navbar'
+// import Navbar from '../components/Navbar'
 import Products from '../components/Products'
 import Footer from '../components/Footer'
 // import { useLocation } from 'react-router-dom'
@@ -74,7 +74,7 @@ const ProductList = () => {
 
   return (
     <Container>
-        <Navbar />
+        {/* <Navbar /> */}
         {/* <Announcement /> */}
         <Wrapper>
             <Title>Shop all</Title>

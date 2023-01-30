@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from '../components/Navbar';
+// import Navbar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
@@ -34,7 +34,7 @@ const HomePageLink = styled(Link)`
 const ErrorPage = () => {
   return (
     <>
-        <Navbar />
+        {/* <Navbar /> */}
         <Container className='wrapper'>
             <Title>404!</Title>
             <Message>Sorry, this page cannot be found!</Message>

@@ -43,7 +43,7 @@ const Icon = styled.div`
 `
 const Price = styled.p``
 
-const Product = ({item}) => {
+const CatProduct = ({item}) => {
   return (
     <Container>
       <Image src={item.img}/>
@@ -59,4 +59,4 @@ const Product = ({item}) => {
   )
 }
 
-export default Product
+export default CatProduct

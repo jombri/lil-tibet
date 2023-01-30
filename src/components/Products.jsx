@@ -1,10 +1,10 @@
-// import React from 'react'
-import React, { useEffect } from 'react'
+import React from 'react'
+// import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { allProducts } from '../merchData'
 import Product from './Product'
 // import { useParams } from 'react-router-dom'
-import { useState } from 'react'
+// import { useState } from 'react'
 // import axios from 'axios'
 
 const Container = styled.div`
@@ -22,15 +22,15 @@ const ProductContainer = styled.div`
 `;
 
 const Products = ({filters, sort}) => {
-  console.log(filters, sort)
+  // console.log(filters, sort)
   // const { cat } = useParams();
 
-  const [products, setProducts] = useState(allProducts);
+  /* const [products, setProducts] = useState(allProducts);
   // const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     setProducts(allProducts);
-  }, []);
+  }, []); */
   
 
 
@@ -40,7 +40,7 @@ const Products = ({filters, sort}) => {
       <Title>All Products</Title>
       {/* <h1>This is cat: {cat}.</h1> */}
       <ProductContainer>
-        {products.map(item => (
+        {allProducts.map(item => (
             <Product item={item} key={item.id} />
         ))}
         {/* {filteredProducts.map(item => (

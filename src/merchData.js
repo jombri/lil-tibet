@@ -1,7 +1,22 @@
+import slide1 from "./images/tibetan-woman-dance.png";
+import catWomenChupa from "./images/women-woolen-chupa.webp";
+import catChupa from "./images/men-woolen-chupa.webp";
+import catGift from "./images/accessory-gift.webp";
+import pinkBlouse from "./images/women-blouse-pink.webp";
+import womenChupa1 from  "./images/women-chupa.webp";
+import beedsTurqoise from "./images/prayer-beeds-turqoise.webp";
+import beeds1 from "./images/prayer-beeds.webp";
+import sorilOil1 from  "./images/sorig-arthritis-oil.webp";
+import shoeBlack1 from "./images/tibetan-shoe-black.webp";
+import shoeBrown1 from "./images/tibetan-shoe-brown.webp";
+import coatBlue1 from "./images/winter-coat-skyblue.webp";
+import coatBrown1 from "./images/winter-coat-brown.webp";
+
+
 export const heroItems = [
     {
         id: 1,
-        img: "./images/tibetan-woman-dance.png",
+        img: slide1,
         title: "FALL SALE",
         desc: "GEAR UP OUR NEW FALL COLLECTION 2022!",
         // bg: "(255,153,51)",
@@ -28,78 +43,79 @@ export const heroItems = [
 export const categories = [
     {
         id: 1,
-        img: "./images/women-woolen-chupa.webp",
+        img: catWomenChupa,
         title: "WOMEN CHUPA",
         cat: "women-chupa"
     },
     {
         id: 2,
-        img: "./images/men-woolen-chupa.webp",
+        img: catChupa,
         title: "MEN CHUPA",
         cat: "men-chupa"
     },
     {
         id: 3,
-        img: "./images/accessory-gift.webp",
+        img: catGift,
         title: "ACCESSORY GIFT",
         cat: "accessory"
 
     }
 ];
 
+
 export const allProducts = [
     {
         id: 1,
-        img: "./images/women-blouse-pink.webp",
-        price: "$25",
+        img: pinkBlouse,
+        price: 25.00,
         cat: "women"
     },
     {
         id: 2,
-        img: "./images/women-chupa.webp",
-        price: "$50",
+        img: womenChupa1,
+        price: 50.00,
         cat: "women"
     },
     {
         id: 3,
-        img: "./images/prayer-beeds-turqoise.webp",
-        price: "$10",
+        img: beedsTurqoise,
+        price: 10.00,
         cat: "accesory"
     },
     {
         id: 4,
-        img: "./images/prayer-beeds.webp",
-        price: "$8",
+        img: beeds1,
+        price: 8.00,
         cat: "accesory"
     },
     {
         id: 5,
-        img: "./images/sorig-arthritis-oil.webp",
-        price: "$10",
+        img: sorilOil1,
+        price: 10.00,
         cat: "sorig oil"
     },
     {
         id: 6,
-        img: "./images/tibetan-shoe-black.webp",
-        price: "$90",
+        img: shoeBlack1,
+        price: 90.00,
         cat: "unisex"
     },
     {
         id: 7,
-        img: "./images/tibetan-shoe-brown.webp",
-        price: "$90",
+        img: shoeBrown1,
+        price: 90.00,
         cat: "unisex"
     },
     {
         id: 8,
-        img: "./images/winter-coat-skyblue.webp",
-        price: "$80",
+        img: coatBlue1,
+        price: 80.00,
         cat: "unisex"
     },
     {
         id: 9,
-        img: "./images/winter-coat-brown.webp",
-        price: "$80",
+        img: coatBrown1,
+        price: 80.00,
         cat: "men"
     },
 ];

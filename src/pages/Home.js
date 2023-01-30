@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from '../components/Navbar';
-import Categories from '../components/Categories';
+// import Navbar from '../components/Navbar';
+// import Categories from '../components/Categories';
 import Products from '../components/Products';
 import Footer from '../components/Footer';
 import styled from 'styled-components';
@@ -8,19 +8,20 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   height: 100%;
+  margin-top: 3rem;
   `;
 
-const NavComponent = styled(Navbar)`
+/* const NavComponent = styled(Navbar)`
   height: 100%;
   position: sticky;
   top: 0;
-  `;
+  `; */
 
 const Home = () => {
   return (
     <Container >
-      <NavComponent />
-      <Categories />
+      {/* <NavComponent /> */}
+      {/* <Categories /> */}
       <Products />
       {/* <ProductList /> */}
       <Footer />

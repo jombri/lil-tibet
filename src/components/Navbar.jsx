@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import Badge from '@mui/material/Badge';
+// import Badge from '@mui/material/Badge';
 import {Close, FavoriteBorder, Menu, Search, ShoppingCartOutlined} from '@mui/icons-material';
 import { tablet } from "../responsive";
 import Announcement from './Announcement';
 import SearchBox from './SearchBox';
+import {ShopContext} from '../context/ShopContext'
+
 
  const Container = styled.nav`
     width: 100%;
@@ -80,7 +82,6 @@ export const CategoryLink = styled(NavLink)`
   text-decoration: none;
   position: relative;
   color: black;
-  text-decoration: none;
 
   &:hover {
     cursor: pointer;
@@ -197,6 +198,11 @@ const Navbar = () => {
   const [sideNav, setSideNav] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
+  const {cartItems} = useContext(ShopContext);
+  // console.log(cartItems, totalItems)
+  console.log(cartItems.length)
+
+
   const openSearch = () => {
     setShowSearch(current => !current)
   }
@@ -237,9 +243,10 @@ const Navbar = () => {
             </MenuItem>
             <Link to="/cart">
               <MenuItem>
-                <Badge badgeContent={4} color="primary">
+                {/* <Badge badgeContent={4} color="primary"> */}
                 <ShoppingCartOutlined />
-                </Badge>
+                <span>{cartItems.length}</span>
+                {/* </Badge> */}
               </MenuItem>
             </Link>
           </IconDiv>
