@@ -126,6 +126,7 @@ const Cart = () => {
                             if (cartItems[item.id] !== 0) {
                                 return <CartItem item={item} />;
                             }
+                            return null;
                         })}
                     </CartItems>
                         <Summary>
